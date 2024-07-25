@@ -98,12 +98,21 @@ button.button-download .version {
 button.button-download.purple {
   background: #855FB1;
 }
+button.button-download.purple:hover {
+  background: #B18BDD;
+}
 button.button-download.purple .version {
   color: white;
+}
+button.button-download:hover {
+  background: #71C0D4;
 }
 button.button-purple {
   width: 139px;
   background: #855FB1;
+}
+button.button-purple:hover {
+  background: #B18BDD;
 }
 
 .hero, .features, .cta {

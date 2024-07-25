@@ -110,16 +110,27 @@ button {
 
         &.purple {
             background: map-get($map: $colors, $key: purple);
+            &:hover {
+                background: #B18BDD;
+            }
 
             .version {
                 color: white;
             }
+        }
+
+        &:hover {
+            background: #71C0D4;
         }
     }
 
     &.button-purple {
         width: 139px;
         background: map-get($map: $colors, $key: purple);
+
+        &:hover {
+            background: #B18BDD;
+        }
     }
 }
 
