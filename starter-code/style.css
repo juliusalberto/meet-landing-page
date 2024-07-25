@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: white;
+  font-family: "Red Hat Display", sans-serif;
+  padding: 0;
+}
+body img {
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+  padding: 0 24px;
+}
+
+header {
+  padding: 3rem 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header .img {
+  flex: 1;
+}
+
+h1, h2, h3, p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Red Hat Display";
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 44px;
+  color: #28283D;
+  margin-top: 3rem;
+}
+
+p {
+  text-align: center;
+  font-family: "Red Hat Display";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  color: #87879D;
+}
+p.upper {
+  margin-bottom: 2rem;
+}
+p.bottom {
+  margin-bottom: 4rem;
+}
+
+.green-text {
+  font-family: "Red Hat Display";
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 26px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #4D96A9;
+}
+
+button {
+  height: 58px;
+  border-radius: 29px;
+  font-family: "Red Hat Display";
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 26px;
+  border-style: none;
+  color: white;
+  cursor: pointer;
+}
+button.button-download {
+  width: 193px;
+  background: #4D96A9;
+  margin-bottom: 1rem;
+}
+button.button-download .version {
+  color: #8FE3F9;
+}
+button.button-download.purple {
+  background: #855FB1;
+}
+button.button-download.purple .version {
+  color: white;
+}
+button.button-purple {
+  width: 139px;
+  background: #855FB1;
+}
+
+.hero, .features, .cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.logo {
+  height: 1.75rem;
+}
+
+.chapter-sign {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 64px 0;
+}
+.chapter-sign .line {
+  width: 1px;
+  height: 84px;
+  background-color: rgba(135, 135, 157, 0.25);
+}
+.chapter-sign .circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(135, 135, 157, 0.25);
+  font-family: "Red Hat Display";
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  background-color: white;
+}
+.chapter-sign .circle span.circle-num {
+  color: #87879D;
+  opacity: 1;
+}
+
+.grid-container {
+  display: grid;
+  margin: 64px 0;
+  gap: 24px;
+  height: auto;
+  max-width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.grid-container img {
+  border-radius: 8px;
+}
+
+.cta {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 56px 2rem;
+  text-align: center;
+  background-image: url("./assets/mobile/image-footer.jpg");
+  z-index: -1;
+}
+.cta .cta-content {
+  position: relative;
+  z-index: 3;
+}
+.cta .cta-content .footer {
+  color: white;
+}
+.cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4D96A9;
+  z-index: -2;
+  opacity: 0.8;
+}
+.cta.bottom {
+  margin-bottom: 0;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlap {
+  position: relative;
+  z-index: 2;
+  margin-bottom: -28px;
+}
+
+.desktop-header-img {
+  display: none;
+}
+
+h2 {
+  font-family: "Red Hat Display";
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 36px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .cta {
+    background-image: url("./assets/tablet/image-footer.jpg");
+  }
+}
+@media screen and (min-width: 768px) {
+  .header-img {
+    display: none;
+  }
+  .desktop-header-img {
+    display: block;
+  }
+  body {
+    height: auto;
+  }
+  .hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 5.5rem;
+    min-height: 22.375rem;
+  }
+  .hero .desktop-header-img {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .hero .desktop-header-img .left-header-pic {
+    align-self: flex-start;
+    overflow: hidden;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .hero .desktop-header-img .right-header-pic {
+    overflow: hidden;
+    -o-object-fit: contain;
+       object-fit: contain;
+    align-self: flex-end;
+  }
+  .hero .desktop-header-img.right-header {
+    margin-right: -30px;
+  }
+  .hero .desktop-header-img.left-header {
+    margin-left: -30px;
+  }
+  .hero .desktop-head-container h1 {
+    font-size: 50px;
+  }
+  main {
+    padding: 0;
+    width: 100%;
+  }
+  .cta-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .grid-container {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+  }
+  .features-text {
+    max-width: 33.75rem;
+  }
+  .cta {
+    background-image: url("./assets/desktop/image-footer.jpg");
+    width: 100%;
+  }
+  .cta .cta-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5.75rem;
+  }
+  .cta .cta-content > * {
+    margin-bottom: 0;
+    text-align: left;
+  }
+  .cta .cta-content .footer, .cta .cta-content h2 {
+    max-width: 21.87rem;
+  }
+  .cta .cta-content > .button-download {
+    min-width: 12rem;
+    text-align: center;
+  }
+}/*# sourceMappingURL=style.css.map */

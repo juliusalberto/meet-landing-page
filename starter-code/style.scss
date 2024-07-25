@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+$colors: (
+    deep-green: #4D96A9,
+    purple: #855FB1,
+    deep-black: #28283D,
+    grey: #87879D,
+    light-blue: #8FE3F9,
+    light-purple: #D9B8FF);
+
+@mixin font-style($family, $size, $weight, $line-height: normal) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $line-height;
+}
+
+@mixin flexbox($direction: row, $justify: flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    @include flexbox(column, flex-start, center);
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: white;
+    font-family: 'Red Hat Display', sans-serif;
+    padding: 0;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+main {
+    padding: 0 24px;
+}
+
+header {
+    padding: 3rem 8rem;
+    @include flexbox(column, center, center);
+
+    .img {
+        flex: 1;
+    }
+}
+
+// Typography
+
+h1, h2, h3, p {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    text-align: center;
+    @include font-style("Red Hat Display", 40px, 900, 44px);
+    color: map-get($map: $colors, $key: deep-black);
+    margin-top: 3rem;
+}
+
+p {
+    text-align: center;
+    @include font-style("Red Hat Display", 16px, 500, 26px);
+    color: map-get($map: $colors, $key: grey);
+
+    &.upper {
+        margin-bottom: 2rem;
+    }
+
+    &.bottom {
+        margin-bottom: 4rem;
+    }
+}
+
+.green-text {
+    @include font-style("Red Hat Display", 16px, 900, 26px);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: map-get($map: $colors, $key: deep-green);
+}
+
+// Buttons
+button {
+    height: 58px;
+    border-radius: 29px;
+    @include font-style("Red Hat Display", 16px, 900, 26px);
+    border-style: none;
+    color: white;
+    cursor: pointer;
+
+    &.button-download {
+        width: 193px;
+        background: map-get($map: $colors, $key: deep-green);
+        margin-bottom: 1rem;
+
+        .version {
+            color: map-get($map: $colors, $key: light-blue);
+        }
+
+        &.purple {
+            background: map-get($map: $colors, $key: purple);
+
+            .version {
+                color: white;
+            }
+        }
+    }
+
+    &.button-purple {
+        width: 139px;
+        background: map-get($map: $colors, $key: purple);
+    }
+}
+
+.hero, .features, .cta {
+    @include flexbox(column, center, center);
+    margin-bottom: 4rem;
+}
+
+
+
+.logo {
+    height: 1.75rem;
+}
+
+
+.chapter-sign {
+    @include flexbox(column, flex-start, center);
+    margin: 64px 0;
+
+    .line {
+        width: 1px;
+        height: 84px;
+        background-color: rgba(135, 135, 157, 0.25)
+    }
+
+    .circle {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: 1px solid rgba(135, 135, 157, 0.25);
+        @include font-style("Red Hat Display", 16px, 900, 26px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 4;
+        background-color: white;
+
+        span.circle-num {
+            color: #87879D;
+            opacity: 1;
+        }
+    }
+}
+
+.grid-container {
+    display: grid;
+    margin: 64px 0;
+    gap: 24px;
+    height: auto;
+    max-width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    img {
+        border-radius: 8px;
+    }
+}
+
+.cta {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 56px 2rem;
+    text-align: center;
+    background-image: url("./assets/mobile/image-footer.jpg");
+    z-index: -1;
+
+    .cta-content {
+        position: relative;
+        z-index: 3;
+
+        .footer {
+            color: white;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: map-get($map: $colors, $key: deep-green);
+        z-index: -2;
+        opacity: 0.8;
+    }
+
+    &.bottom {
+        margin-bottom: 0;
+    }
+}
+
+.cta-buttons {
+    @include flexbox(column, center, center)
+}
+
+.overlap {
+    position: relative;
+    z-index: 2;
+    margin-bottom: -28px;
+
+
+}
+
+.desktop-header-img {
+    display: none;
+}
+
+
+
+h2 {
+    @include font-style("Red Hat Display", 32px, 900, 36px);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .cta {
+        background-image: url("./assets/tablet/image-footer.jpg");
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header-img {
+        display: none;
+    }
+
+    .desktop-header-img {
+        display: block;
+    }
+
+    body {
+        height: auto;
+    }
+
+    .hero {
+        @include flexbox(row, space-between, stretch);
+        gap: 5.5rem;
+        min-height: 22.375rem;
+
+
+        .desktop-header-img {
+            @include flexbox(row, flex-start, stretch);
+        
+            .left-header-pic {
+                align-self: flex-start;
+                overflow: hidden;
+                object-fit: contain;
+            }
+
+            .right-header-pic {
+                overflow: hidden;
+                object-fit: contain;
+                align-self: flex-end;
+            }
+
+            &.right-header {
+                margin-right: -30px;
+            }
+
+            &.left-header {
+                margin-left: -30px;
+            }
+        }
+
+        .desktop-head-container {
+            
+            h1 {
+            font-size: 50px;
+            }
+            
+        }
+    }
+
+    main {
+        padding: 0;
+        width: 100%;
+    }
+
+
+    .cta-buttons {
+        @include flexbox(row, center);
+        gap: 1rem;
+    }
+
+    .grid-container {
+        margin-left: 10rem;
+        margin-right: 10rem;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    .features-text {
+        max-width: 33.75rem;
+    }
+
+    .cta {
+        background-image: url("./assets/desktop/image-footer.jpg");
+        width: 100%;
+
+        .cta-content {
+            @include flexbox(row, center, center);
+            
+            gap: 5.75rem;
+            
+            &>* {
+                margin-bottom: 0;
+                text-align: left;
+            }
+
+            .footer, h2{
+                max-width: 21.87rem;
+            }
+
+            &>.button-download {
+                min-width: 12rem;
+                text-align: center;
+            }
+        }
+    }
+}
